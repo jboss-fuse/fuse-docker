@@ -31,7 +31,11 @@ public class Example {
     }
 
     public static void main(String... args) throws InterruptedException {
-        Docker docker = Feign.create(Docker.class, args[0], new DockerDecoder());
+        if (args.length == 0) {
+            System.out.println("Usage: dockerAddress");
+            return;
+        }
+        Docker docker = new DockerFactory(args[0]).createDocker();
         displayVersion(docker);
         displayInfo(docker);
         displayContainers(docker);

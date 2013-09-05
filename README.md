@@ -1,4 +1,4 @@
 fuse-docker
 ===========
 
-docker files for creating Fuse containers
+A Java Docker API using Net
